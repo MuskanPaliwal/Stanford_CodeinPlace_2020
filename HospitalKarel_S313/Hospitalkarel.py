@@ -25,4 +25,29 @@ def put_three_beepers():
         put_beeper()
         move()
     put_beeper()
+def build_hospital():
+    """
+    Precondition: World is valid (beepers are not next to each other, or next to a wall)
+    Post-condition: A hospital is built, Karel has moved one corner forward
+    """
+    pick_beeper()  # Pick up the beeper (the supplies)
+    turn_left()
+    put_three_beepers()
+    turn_right()
+    move()
+    turn_right()
+    put_three_beepers()
+    turn_left()
 
+
+def main():
+    while front_is_clear():
+        if beepers_present():
+            build_hospital()  # Build the hospital
+        if front_is_clear():
+            move()  # Move towards a beeper
+
+
+if __name__ == "__main__":
+    run_karel_program()
+    main()
