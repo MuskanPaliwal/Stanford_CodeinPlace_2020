@@ -12,18 +12,47 @@ stops.  The world may be of any size, but you are allowed to
 assume that it is at least as tall as it is wide.
 """
 
-
 def main():
-    """
-    You should write your code to make Karel do its task in
-    this function. Make sure to delete the 'pass' line before
-    starting to write your own code. You should also delete this
-    comment and replace it with a better, more descriptive one.
-    """
-    pass
+
+    put_first_extreme_end_beepers() """places beepers at both ends"""
+    pick_end_beepers() """picks beepers at each end as Karel "shrinks the world"""
+    pick_last_beeper() """picks the last beeper in the middle"""
+
+def put_first_extreme_end_beepers():
+    put_beeper()
+    while front_is_clear():
+        move()
+    turn_around()
+    put_beeper()
 
 
-# There is no need to edit code beyond this point
+def pick_end_beepers():
+    pick_beeper()
+    move()
+    put_beeper()
+    while front_is_clear():
+        move()
+        if beepers_present():
+            pick_beeper()
+            turn_around()
+            move()
+            put_beeper()
+
+
+def pick_last_beeper():
+    turn_around()
+    while no_beepers_present():
+        move()
+        if beepers_present():
+            pick_beeper()
+
+def turn_around():
+    for i in range(2):
+        turn_left()
+    
+
+
+
 
 if __name__ == "__main__":
     run_karel_program()
