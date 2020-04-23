@@ -19,7 +19,7 @@ def main():
         check_beeper()"""
         
 """build column function makes the karel to build a column.
-   pre-condition: beeper is facing towards west and turned left before building.
+   pre-condition: beeper is facing towards east and turned left before building.
    post-condition: front is clear, beeper build the column and front is blocked as beeper is facing towards north."""
 def build_column():
     while front_is_clear():
