@@ -10,8 +10,10 @@ sample worlds supplied in the starter folder.
 """
 def main():
 
-  turn_left()
+  build_column()
+  descend_column()
   while front_is_clear():
+     next_column()
      build_column()
      descend_column()
      """next_column()"""
@@ -22,13 +24,14 @@ def main():
    pre-condition: beeper is facing towards east and turned left before building.
    post-condition: front is clear, beeper build the column and front is blocked as beeper is facing towards north."""
 def build_column():
+    turn_left()
     while front_is_clear():
         if no_beepers_present():
             put_beeper()
             move()
         else:
             move()
-        check_beeper()
+    check_beeper()
 
 def turn_right():
     turn_left()
@@ -50,15 +53,10 @@ def descend_column():
         move()
     turn_left()
     """while right_is_blocked():"""
-    if front_is_clear():
-         for i in range(4):
-            move()
+def next_column():
+    for i in range(4):
+        move()
                 
-         turn_left()
-        
-
-
-  # There is no need to edit code beyond this point
-
+         
 if __name__ == "__main__":
     run_karel_program()
